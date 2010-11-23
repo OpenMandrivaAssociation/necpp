@@ -6,7 +6,7 @@
 Name:		%{name}
 Version:	%{version}
 Release:	%mkrel 0.%{necpp_snapshot}.%{rel}
-Summary:	SDCC - Small Device C Compiler
+Summary:	Analysis of the electromagnetic properties of structures
 Group:		Sciences/Physics 
 License:	GPL
 URL:		http://www.physics.otago.ac.nz/research/electronics/nec/index.html
