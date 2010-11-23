@@ -1,7 +1,7 @@
 %define name	necpp
 %define necpp_snapshot cvs20101121
 %define version	1.3.0
-%define rel	1
+%define rel	2
 
 Name:		%{name}
 Version:	%{version}
