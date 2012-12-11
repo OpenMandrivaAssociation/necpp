@@ -1,19 +1,16 @@
 %define name	necpp
 %define necpp_snapshot cvs20101121
 %define version	1.3.0
-%define rel	2
 
-Name:		%{name}
-Version:	%{version}
-Release:	%mkrel 0.%{necpp_snapshot}.%{rel}
+Name:		necpp
+Version:	1.3.0
+Release:	0.%{necpp_snapshot}.2
 Summary:	Analysis of the electromagnetic properties of structures
 Group:		Sciences/Physics 
 License:	GPL
 URL:		http://www.physics.otago.ac.nz/research/electronics/nec/index.html
-Source:		http://alioth.debian.org/frs/download.php/2690/necpp.tar.gz
-BuildRequires:	gcc-c++
-BuildRequires:	libgc-devel
-BuildRequires:	libstdc++-devel
+Source0:		http://alioth.debian.org/frs/download.php/2690/necpp.tar.gz
+BuildRequires:	pkgconfig(bdw-gc)
 BuildRequires:	gcc-gfortran
 BuildRequires:	make
 BuildRequires:	python
@@ -34,18 +31,13 @@ GNU Public License (GPL).
 %setup -q -n %{name}
 
 %build
-
-
 make -f Makefile.cvs   PREFIX=/usr/bin
 ./configure --without-lapack
 
 make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std PREFIX=/usr/lib
-
-
 
 # make some directories
 install -d %{buildroot}%{_bindir}
@@ -63,18 +55,21 @@ mv %{buildroot}/usr/local/lib/libnecpp.so.0 %{buildroot}%{_libdir}/libnecpp.so.0
 mv %{buildroot}/usr/local/lib/libnecpp.so.0.0.0 %{buildroot}%{_libdir}/libnecpp.so.0.0.0
 
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README ChangeLog COPYING INSTALL
-%attr(-,root,root) 
 %{_bindir}/nec2++
 %{_bindir}/nec2diff
 %{_libdir}/libnecpp.a
-%{_libdir}/libnecpp.la
 %{_libdir}/libnecpp.so
 %{_libdir}/libnecpp.so.0
 %{_libdir}/libnecpp.so.0.0.0
 %{_includedir}/libnecpp.h
+
+
+%changelog
+* Tue Nov 23 2010 Thomas Spuhler <tspuhler@mandriva.org> 1.3.0-0.cvs20101121.2mdv2011.0
++ Revision: 599864
+- increased rel to 2
+- corrected summary
+- import necpp
+
