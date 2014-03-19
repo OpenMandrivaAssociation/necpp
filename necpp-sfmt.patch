@@ -1,0 +1,24 @@
+diff -urN necpp/src/nec_output.cpp necpp-patched/src/nec_output.cpp
+--- necpp/src/nec_output.cpp	2008-11-12 11:40:25.000000000 +1000
++++ necpp-patched/src/nec_output.cpp	2014-03-19 23:46:11.684323806 +1100
+@@ -46,9 +46,9 @@
+ 	if (NULL == m_output_fp)
+ 		return;
+ 	
+-	fprintf(m_output_fp, str);
++	fprintf(m_output_fp, "%s", str);
+ 	if (m_error_mode)
+-		fprintf(stderr,str);
++		fprintf(stderr, "%s", str);
+ }
+ 
+ void nec_output_file::endl(int n_lines)
+@@ -160,7 +160,7 @@
+ 		if (j)
+ 		{
+ 			format[j] = '\0';
+-			count += fprintf(m_output_fp, format.data());    /* log it verbatim              */
++			count += fprintf(m_output_fp, "%s", format.data());    /* log it verbatim              */
+ 			fmt += j;
+ 		} 
+ 		else
