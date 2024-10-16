@@ -10,7 +10,7 @@ Version:	1.3.0
 Release:	0.%{necpp_snapshot}.3
 License:	GPLv2+
 Group:		Sciences/Physics
-Url:		http://www.physics.otago.ac.nz/research/electronics/nec/index.html
+Url:		https://www.physics.otago.ac.nz/research/electronics/nec/index.html
 Source0:	http://alioth.debian.org/frs/download.php/2690/necpp.tar.gz
 Patch0:		necpp-sfmt.patch
 BuildRequires:	gcc-gfortran
