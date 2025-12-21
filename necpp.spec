@@ -13,6 +13,11 @@ Group:		Sciences/Physics
 Url:		https://www.physics.otago.ac.nz/research/electronics/nec/index.html
 Source0:	http://alioth.debian.org/frs/download.php/2690/necpp.tar.gz
 Patch0:		necpp-sfmt.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gcc-gfortran
 BuildRequires:	pkgconfig(bdw-gc)
 Provides:	nec2++ = %{EVRD}
